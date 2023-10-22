@@ -4,10 +4,10 @@ import logo from '../icons/icon.png'
 import Modal from 'react-bootstrap/Modal';
 import { Button } from 'react-bootstrap'
 import LoginRegister from '../components/LoginRegister'
-import request from '../requests'
-import tmdbAxiosInstance from '../tmdbAxiosInstance'
+import request from '../services/requests'
+import tmdbAxiosInstance from '../services/axiosInstance'
 import LoginUser from '../components/LoginUser';
-import { Link } from 'react-router-dom';
+
 
 function LandingPage() {
     const fetchurl = request.fetchTrending
@@ -17,9 +17,13 @@ function LandingPage() {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
+    const [login,setLogin] = useState(false)
+    const handlelogin = ()=> setLogin(true)
+    const handleSignup = ()=> setLogin(false)
+
     //api call
     const fetchData = async ()=>{
-        const {data} = await tmdbAxiosInstance.get(fetchurl)
+        const { data } = await tmdbAxiosInstance.get(fetchurl)
         setMovies(data.results[Math.floor(Math.random()*data.results.length)])
     }
 useEffect(()=>{fetchData()},[])
@@ -44,12 +48,18 @@ useEffect(()=>{fetchData()},[])
                         />{' '}Sign up to Track'M</Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
-                        <LoginRegister />
-                        <LoginUser/>
+                        {
+                            login?
+                                <LoginUser /> : <LoginRegister />
+                                
+                        }
                     </Modal.Body>
-
                     <Modal.Footer className='d-flex justify-content-center'>
-                        <Link to='#'>Already have account?</Link>
+                        {
+                            login?
+                            <button onClick={handleSignup} class="btn btn-sm btn-outline-info" type="button">Sign Up here</button>:
+                                <button onClick={handlelogin} class="btn btn-sm btn-outline-success" type="button">Already have account?</button>
+                        }
                     </Modal.Footer>
                 </Modal>
             </div>

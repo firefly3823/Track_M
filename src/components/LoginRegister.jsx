@@ -1,9 +1,6 @@
 import { Button, Col, Form, InputGroup, Row } from 'react-bootstrap'
 import * as yup from 'yup';
 import { Formik } from 'formik';
-import { Link } from 'react-router-dom';
-import { useState } from 'react';
-
 function LoginRegister() {
 
     const schema = yup.object().shape({
@@ -15,10 +12,7 @@ function LoginRegister() {
         confPaswd: yup.string().oneOf([yup.ref('password'), null], 'Password not matched..').required('Confirm password is required')
 
     });
-    // const [login, setLogin] = useState(false)
-    // console.log(login)
     return (
-
             <Formik
             validationSchema={schema}
             onSubmit={(values) => {

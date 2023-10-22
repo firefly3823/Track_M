@@ -2,8 +2,6 @@ import React from 'react'
 import { Button, Col, Form, InputGroup, Row } from 'react-bootstrap'
 import * as yup from 'yup';
 import { Formik } from 'formik';
-import { Link } from 'react-router-dom';
-import { useState } from 'react';
 
 function LoginUser() {
 
@@ -14,10 +12,6 @@ function LoginUser() {
             password: yup.string().required('Please fill Password').matches(/^(?=.*\d)(?=.*\W)/, 'Password Does not meet expectation')
 
         });
-    const [login, setLogin] = useState(false)
-    const handleLogin = () => setLogin(true)
-    console.log(login)
-    
     return (
 
         <Formik
