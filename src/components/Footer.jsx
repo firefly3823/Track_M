@@ -25,7 +25,7 @@ function footer() {
                     <Link to={'/'} className='text-light' style={{ textDecoration: "none"}}>Support</Link>
                 </div>
                 <div className="Contact">
-                    <h3 className='text-primary'>CONTACT US</h3>
+                    <h3 className='text-primary'>SUBSCRIBE</h3>
                     <InputGroup size="sm" className="mb-3 w-100">
                         <Form.Control aria-label="Small" aria-describedby="inputGroup-sizing-sm" />
                         <button type="button"  class="btn btn-primary">SUBSCRIBE</button>
@@ -37,7 +37,7 @@ function footer() {
                     </div>
                 </div>
             </div>
-            <p>Copyright © 2023 Shopify.</p>
+            <p>Copyright © 2023 Track'M by stevin.</p>
         </div>
     )
 }

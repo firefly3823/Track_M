@@ -1,8 +1,9 @@
 import React from 'react'
+import LoginRegister from '../components/LoginRegister'
 
 function Home() {
     return (
-        <div>Home</div>
+        <div><LoginRegister /></div>
     )
 }
 
