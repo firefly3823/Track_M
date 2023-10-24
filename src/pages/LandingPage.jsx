@@ -24,9 +24,10 @@ function LandingPage() {
     //api call
     const fetchData = async ()=>{
         const { data } = await tmdbAxiosInstance.get(fetchurl)
+        // console.log(data.results[Math.floor(Math.random() * data.results.length)]);
         setMovies(data.results[Math.floor(Math.random()*data.results.length)])
     }
-useEffect(()=>{fetchData()},[])
+    useEffect(() => { fetchData() }, [])
 
     return (
         <>
@@ -57,8 +58,8 @@ useEffect(()=>{fetchData()},[])
                     <Modal.Footer className='d-flex justify-content-center'>
                         {
                             login?
-                            <button onClick={handleSignup} class="btn btn-sm btn-outline-info" type="button">Sign Up here</button>:
-                                <button onClick={handlelogin} class="btn btn-sm btn-outline-success" type="button">Already have account?</button>
+                            <button onClick={handleSignup} className="btn btn-sm btn-outline-info" type="button">Sign Up here</button>:
+                                <button onClick={handlelogin} className="btn btn-sm btn-outline-success" type="button">Already have account? Login here</button>
                         }
                     </Modal.Footer>
                 </Modal>

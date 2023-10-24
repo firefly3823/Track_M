@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, Col, Form, InputGroup, Row } from 'react-bootstrap'
+import { Button, Col, Form, Row } from 'react-bootstrap'
 import * as yup from 'yup';
 import { Formik } from 'formik';
 
@@ -47,9 +47,9 @@ function LoginUser() {
                     </Row>
                     <Row>
                         <Form.Group as={Col} md="12" controlId="validationFormik02">
-                            <Form.Label>User Name</Form.Label>
+                            <Form.Label>Password</Form.Label>
                             <Form.Control
-                                type="text"
+                                type="password"
                                 name="password"
                                 placeholder="Enter Password"
                                 value={values.password}
