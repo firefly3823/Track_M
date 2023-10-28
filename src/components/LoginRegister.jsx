@@ -1,7 +1,7 @@
 import { Button, Col, Form, InputGroup, Row, } from 'react-bootstrap'
 import * as yup from 'yup';
 import { Formik } from 'formik';
-import { CreateAccount, getOneAccountData } from '../services/allAPI';
+import { CreateAccount, getAccountData } from '../services/allAPI';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -23,18 +23,24 @@ function LoginRegister() {
                 validationSchema={schema}
                 onSubmit={async (values) => {
                     let currentUserEmail = values.email
-                    const {request} = await getOneAccountData(currentUserEmail)
-                    console.log(request);
-                if(request.status>300){
-                    toast.warning
-                }
-                    const response = await CreateAccount(values)
-                    if (response.status >= 200 && response.status < 300) {
-                        toast.success('Account Created successfuly..! Click Login Below')
-                    } else {
-                        toast.error('oops... somthing wenting wrong')
-                        // console.log(response);
+                    const response = await getAccountData()
+                    if(response.status >=200 && response.status <300){
+                    let accountStatus = response.data.some(data=> data.email === currentUserEmail)
+                    if(accountStatus){
+                        toast.warning('Existing Account found in this Email...! Click Login Below')
+                    }else{
+                        const responseStatus = await CreateAccount(values)
+                        if (responseStatus.status >= 200 && responseStatus.status < 300) {
+                            toast.success('Account Created successfuly..! Click Login Below')
+                        } else {
+                            toast.error('oops... somthing wenting wrong')
+                            // console.log(response);
+                        }
+                        
                     }
+                }else{
+                    toast.error("404 not Server Not found! Try again sometimes")
+                }
                 }
                 }
                 initialValues={{

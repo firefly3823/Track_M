@@ -7,6 +7,7 @@ import LoginRegister from '../components/LoginRegister'
 import request from '../services/requests'
 import tmdbAxiosInstance from '../services/axiosInstance'
 import LoginUser from '../components/LoginUser';
+import Header from '../components/Header';
 
 
 function LandingPage() {
@@ -31,6 +32,7 @@ function LandingPage() {
 
     return (
         <>
+        <Header/>
             <div style={{ backgroundImage: `url(${baseUrl}/${movies.backdrop_path})`, backgroundAttachment: "fixed", backgroundPosition: "center",backgroundSize:"cover",backgroundBlendMode:"darken" }} className='container-fluid landing-page-container w-100 text-center d-flex flex-column justify-content-center align-items-center'>
                 <img width={'150px'} src={logo} alt="" />
                 <h1 style={{ color: "white", fontSize: "70px" }}>TRACK' M <br /> ALL</h1>

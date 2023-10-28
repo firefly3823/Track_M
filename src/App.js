@@ -9,7 +9,7 @@ function App() {
   
   return (
     <>
-    <Header/>
+    {/* <Header/> */}
     <Routes>
       <Route path='/home' element={<Home/>}/>
         <Route path='/' element={<LandingPage />} />
