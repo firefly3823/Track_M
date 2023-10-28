@@ -6,8 +6,10 @@ import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 
-function LoginRegister() {
 
+
+function LoginRegister() {
+    
     const schema = yup.object().shape({
         email: yup.string().required().test('email', 'enter proper email', (values) => {
             return values && values.includes('@gmail.com');

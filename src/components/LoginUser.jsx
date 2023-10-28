@@ -6,9 +6,11 @@ import { getAccountData } from '../services/allAPI';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import login from '../redux/userSlice'
 
 function LoginUser() {
-
+        const dispatch = useDispatch()
         const schema = yup.object().shape({
             email: yup.string().required().test('email', 'enter proper email', (values) => {
                 return values && values.includes('@gmail.com');
@@ -28,8 +30,9 @@ function LoginUser() {
                     if (response.status>=200 && response.status<300) {
                     let accountStatus = response.data.some(data => data.email === email && data.password === password)
                     if(accountStatus){
+                        // dispatch(login({email,password}))
                         toast.success('Login Success')
-                        navigate('/home')
+                        // navigate('/home')
 
                     }else{
                         toast.error('Invalid Email or Password..! Please try again')
