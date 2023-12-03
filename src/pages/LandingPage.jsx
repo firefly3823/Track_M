@@ -5,7 +5,7 @@ import Modal from 'react-bootstrap/Modal';
 import { Button } from 'react-bootstrap'
 import LoginRegister from '../components/LoginRegister'
 import request from '../services/requests'
-import tmdbAxiosInstance from '../services/axiosInstance'
+import tmdbInstance from '../services/commonServerAPI'
 import LoginUser from '../components/LoginUser';
 import Header from '../components/Header';
 
@@ -22,10 +22,12 @@ function LandingPage() {
     const handlelogin = ()=> setLogin(true)
     const handleSignup = ()=> setLogin(false)
 
+    const token =  sessionStorage.getItem('sessionString')
+    
+    
     //api call
     const fetchData = async ()=>{
-        const { data } = await tmdbAxiosInstance.get(fetchurl)
-        // console.log(data.results[Math.floor(Math.random() * data.results.length)]);
+        const { data } = await tmdbInstance.get(fetchurl)
         setMovies(data.results[Math.floor(Math.random()*data.results.length)])
     }
     useEffect(() => { fetchData() }, [])

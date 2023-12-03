@@ -4,10 +4,10 @@ import logo from '../icons/icon.png'
 
 function Headder() {
     return (
-        <>
-            <Navbar expand="lg" className="bg-body-tertiary position-fixed w-100 " data-bs-theme="dark">
+        <div className='pb-5'>
+            <Navbar expand="lg" className="bg-body-tertiary position-fixed w-100 z-1 " data-bs-theme="dark">
                 <Container>
-                    <Navbar.Brand href="#home">
+                    <Navbar.Brand href="/">
                         <img
                             alt=""
                             src={logo}
@@ -20,8 +20,8 @@ function Headder() {
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="me-auto">
-                            <Nav.Link href="#home">Home</Nav.Link>
-                            <Nav.Link href="#link">Latest</Nav.Link>
+                            <Nav.Link href="/home">Home</Nav.Link>
+                            <Nav.Link href="/latest">Latest</Nav.Link>
                             <NavDropdown title="Explore" id="basic-nav-dropdown">
                                 <NavDropdown.Item href="#action/3.1">Trending</NavDropdown.Item>
                                 <NavDropdown.Item href="#action/3.2">Recomented</NavDropdown.Item>
@@ -41,7 +41,7 @@ function Headder() {
                     </Navbar.Collapse>
                 </Container>
             </Navbar>
-        </>
+        </div>
     )
 }
 

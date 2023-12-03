@@ -1,7 +1,7 @@
 import { Button, Col, Form, InputGroup, Row, } from 'react-bootstrap'
 import * as yup from 'yup';
 import { Formik } from 'formik';
-import { CreateAccount, getAccountData } from '../services/allAPI';
+import {createAccount } from '../services/allAPI';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -9,7 +9,21 @@ import 'react-toastify/dist/ReactToastify.css';
 
 
 function LoginRegister() {
-    
+    const handleRegister = async (values)=>{
+        const { username, email, password } = values
+        if (!username || !email || !password) {
+            toast.warn("Please fill the form")
+        } else {
+            const result = await createAccount(values)
+            // console.log(result&& result);
+            if (result && result.status === 200) {
+                toast.success("Account Created! Login Below")
+            } else {
+                toast.error(result && result.response.data)
+            }
+        }
+    }
+
     const schema = yup.object().shape({
         email: yup.string().required().test('email', 'enter proper email', (values) => {
             return values && values.includes('@gmail.com');
@@ -23,26 +37,8 @@ function LoginRegister() {
         <>
             <Formik
                 validationSchema={schema}
-                onSubmit={async (values) => {
-                    let currentUserEmail = values.email
-                    const response = await getAccountData()
-                    if(response.status >=200 && response.status <300){
-                    let accountStatus = response.data.some(data=> data.email === currentUserEmail)
-                    if(accountStatus){
-                        toast.warning('Existing Account found in this Email...! Click Login Below')
-                    }else{
-                        const responseStatus = await CreateAccount(values)
-                        if (responseStatus.status >= 200 && responseStatus.status < 300) {
-                            toast.success('Account Created successfuly..! Click Login Below')
-                        } else {
-                            toast.error('oops... somthing wenting wrong')
-                            // console.log(response);
-                        }
-                        
-                    }
-                }else{
-                    toast.error("404 not Server Not found! Try again sometimes")
-                }
+                onSubmit={(values) => {
+                    handleRegister(values)
                 }
                 }
                 initialValues={{
@@ -124,7 +120,7 @@ function LoginRegister() {
                             </Form.Group>
                         </Row>
                         <div className='w-100 d-flex justify-content-end'>
-                            <Button className='btn m-2' type="submit">Sign up</Button>
+                            <Button className='btn m-2'  type="submit">Sign up</Button>
                         </div>
                     </Form>
                 )}

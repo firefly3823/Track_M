@@ -2,15 +2,12 @@ import React from 'react'
 import { Button, Col, Form, Row } from 'react-bootstrap'
 import * as yup from 'yup';
 import { Formik } from 'formik';
-import { getAccountData } from '../services/allAPI';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { loginUserAPI } from '../services/allAPI';
 import { useNavigate } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-import login from '../redux/userSlice'
 
 function LoginUser() {
-        const dispatch = useDispatch()
         const schema = yup.object().shape({
             email: yup.string().required().test('email', 'enter proper email', (values) => {
                 return values && values.includes('@gmail.com');
@@ -19,29 +16,30 @@ function LoginUser() {
         
         });
         const navigate = useNavigate()
+        const handleLogin = async (userData)=>{
+            const {email,password} = userData
+            if(!email || !password){
+                toast.error("Enter Proper Info")
+            }else{
+                const result = await loginUserAPI(userData)
+                console.log(result);
+                if (result.status === 200) {
+                    sessionStorage.setItem("currentUser", JSON.stringify(result.data.existingUser))
+                    sessionStorage.setItem("sessionString", result.data.sessionString)
+                    navigate('/home')
+                }else{
+                    toast.error(result.response.data)
+                }
+            }
+        }
+
+
     return (
 
         <>
             <Formik
                 validationSchema={schema}
-                onSubmit={ async (values) => {
-                    let {email, password} = values;
-                    const response = await getAccountData()
-                    if (response.status>=200 && response.status<300) {
-                    let accountStatus = response.data.some(data => data.email === email && data.password === password)
-                    if(accountStatus){
-                        // dispatch(login({email,password}))
-                        toast.success('Login Success')
-                        // navigate('/home')
-
-                    }else{
-                        toast.error('Invalid Email or Password..! Please try again')
-                    }
-    
-                }else{
-                    toast.error("404 Server Not found! Try again later")
-                }
-                }}
+                onSubmit={ (values) => {handleLogin(values)}}
                 initialValues={{
                     email: '',
                     password: '',

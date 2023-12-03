@@ -1,17 +1,15 @@
 import axios from "axios";
 
-const tmdbAxiosInstance = axios.create({
+const tmdbInstance = axios.create({
     baseURL: "https://api.themoviedb.org/3"
 })
 
-export const trackMAPI = async (httpMethod, url, reqBody) => {
+export const trackMAPI = async (httpMethod, url, reqBody,reqHeader) => {
     const reqConfig = {
         method: httpMethod,
         url,
         data: reqBody,
-        Headers: {
-            "Content-type": "application/json"
-        }
+        headers: reqHeader ? reqHeader : { "Content-Type": "application/json" }
     }
     return await axios(reqConfig).then((result) => {
         return result
@@ -20,4 +18,4 @@ export const trackMAPI = async (httpMethod, url, reqBody) => {
     })
 
 }
-export default tmdbAxiosInstance
+export default tmdbInstance

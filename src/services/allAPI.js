@@ -1,11 +1,18 @@
-import {trackMAPI} from './axiosInstance'
+import {trackMAPI} from './commonServerAPI'
 import { serverURL } from './serverURL'
 
 
-export const CreateAccount = async (body)=>{
-    return await trackMAPI("POST", `${ serverURL }/userCred`,body)
+export const createAccount = async (user)=>{
+    try {
+        const response = await trackMAPI("POST", `${serverURL}/register/usr`, user, "");
+        console.log('API Response:', response);
+        return response;
+    } catch (error) {
+        console.error('Error in createAccount:', error);
+        throw new Error(error.message);
+    }
 }
 
-export const getAccountData = async ()=>{
-    return await trackMAPI('GET', `${serverURL}/userCred`,"")
+export const loginUserAPI = async (user)=>{
+    return await trackMAPI("POST",`${serverURL}/login/usr`,user,"")
 }
