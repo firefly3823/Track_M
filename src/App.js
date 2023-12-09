@@ -5,6 +5,7 @@ import LandingPage from './pages/LandingPage'
 import Footer from './components/Footer'
 import { Provider } from 'react-redux';
 import store from './redux/store'
+import MovieDetailedView from './pages/MovieDetailedView';
 
 function App() {
 
@@ -14,6 +15,7 @@ function App() {
           <Routes>
             <Route path='/home' element={<Home />} />
             <Route path='/' element={<LandingPage />} />
+            <Route path='/details' element={<MovieDetailedView/>}/>
           </Routes>
         <Footer />
       </Provider>

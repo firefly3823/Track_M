@@ -28,7 +28,7 @@ function footer() {
                     <h3 className='text-primary'>SUBSCRIBE</h3>
                     <InputGroup size="sm" className="mb-3 w-100">
                         <Form.Control aria-label="Small" aria-describedby="inputGroup-sizing-sm" />
-                        <button type="button"  class="btn btn-primary">SUBSCRIBE</button>
+                        <button type="button"  className="btn btn-primary">SUBSCRIBE</button>
                     </InputGroup>
                     <div className='d-flex w-100 justify-content-evenly'>
                         <div><Link to={'/'} style={{ textDecoration: "none"}}><i className="fa-brands fa-twitter text-light fa-xl"></i></Link></div>

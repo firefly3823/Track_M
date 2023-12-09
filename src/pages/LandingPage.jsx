@@ -27,15 +27,20 @@ function LandingPage() {
     
     //api call
     const fetchData = async ()=>{
-        const { data } = await tmdbInstance.get(fetchurl)
-        setMovies(data.results[Math.floor(Math.random()*data.results.length)])
+        try {
+            const { data } = await tmdbInstance.get(fetchurl)
+            setMovies(data.results[Math.floor(Math.random() * data.results.length)])
+        } catch (error) {
+            console.log(`Server Not Found ${error}`)
+        }
+        
     }
     useEffect(() => { fetchData() }, [])
 
     return (
         <>
         <Header/>
-            <div style={{ backgroundImage: `url(${baseUrl}/${movies.backdrop_path})`, backgroundAttachment: "fixed", backgroundPosition: "center",backgroundSize:"cover",backgroundBlendMode:"darken" }} className='container-fluid landing-page-container w-100 text-center d-flex flex-column justify-content-center align-items-center'>
+            <div style={{ backgroundImage: `url(${baseUrl}/${movies.backdrop_path})`, backgroundAttachment: "fixed", backgroundPosition: "center",backgroundSize:"cover",backgroundBlendMode:"darken" }} className='container-fluid landing-page-container w-100 pt-4 text-center d-flex flex-column justify-content-center align-items-center'>
                 <img width={'150px'} src={logo} alt="" />
                 <h1 style={{ color: "white", fontSize: "70px" }}>TRACK' M <br /> ALL</h1>
                 <p className='text-light'>Track shows and movies you watch. <br /> Discover what's hot and where
