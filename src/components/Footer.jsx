@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 function footer() {
     return (
         <div style={{ height: "300px" }} className='bg-dark w-100 text-primary d-flex flex-column justify-content-center align-items-center'>
-            <div className="footer-content h-100 align-items-center w-100 d-flex flex-row justify-content-evenly">
+            <div className="footer-content h-100 align-items-center w-100 d-flex flex-row flex-wrap justify-content-evenly">
                 <div className="about" style={{ width: "350px" }}>
                     <Link to={'/'} className='fs-4 text-primary' style={{ textDecoration: "none", fontWeight: "bold" }}>
                         <img src={logo} alt=""/>

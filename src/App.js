@@ -15,7 +15,7 @@ function App() {
           <Routes>
             <Route path='/home' element={<Home />} />
             <Route path='/' element={<LandingPage />} />
-            <Route path='/details' element={<MovieDetailedView/>}/>
+          <Route path='/details/:media_type/:id' element={<MovieDetailedView/>}/>
           </Routes>
         <Footer />
       </Provider>

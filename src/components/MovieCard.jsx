@@ -2,7 +2,8 @@ import React from 'react'
 import AOS from 'aos'
 import Card from 'react-bootstrap/Card';
 import { Button, OverlayTrigger, Tooltip } from 'react-bootstrap';
-import './MovieCard.css'
+import './component.css'
+import { Link } from 'react-router-dom';
 
 
 function MovieCard({ movie }) {
@@ -23,8 +24,8 @@ function MovieCard({ movie }) {
                 <small className="text-muted d-flex justify-content-between">
                     <div>
                         <OverlayTrigger overlay={<Tooltip>View Info</Tooltip>}>
-                            <Button variant="none" size="sm"><i className="fa-solid fa-xl fa-circle-info" style={{ color: "#3ca8ec" }}></i>
-                            </Button>
+                            <Link to={`/details/${movie.media_type}/${movie.id}`}  className='btn' variant="none" size="sm"><i className="fa-solid fa-xl fa-circle-info" style={{ color: "#3ca8ec" }}></i>
+                            </Link>
                         </OverlayTrigger>
                         <OverlayTrigger overlay={<Tooltip>Add to Watchlist</Tooltip>}>
                             <Button variant="none" size="sm"><i className="fa-solid fa-file-arrow-up fa-xl" style={{ color: "#3ca8ec" }}></i>

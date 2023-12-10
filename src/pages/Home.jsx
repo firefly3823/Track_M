@@ -10,12 +10,12 @@ import Crousal from '../components/Crousal'
 function Home() {
     const [movies, setMovies] = useState([])
     const [current_page, setCurrentPage] = useState(1)
-    const fetchUrl = `/trending/all/week?api_key=${APIKEY}&page=${current_page}&_limit=30`
+    const fetchUrl = `/trending/all/week?api_key=${APIKEY}&page=${current_page}&_limit=18`
     const fetchData = async () => {
         try {
             const {data}  = await tmdbInstance.get(fetchUrl)
             setMovies(data.results)
-            // console.log(res.data.results);
+            console.log(data.results);
             
         } catch (error) {
             console.log(`Server Not Found ${error}`)
