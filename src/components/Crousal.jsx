@@ -10,7 +10,9 @@ function Crousal({ movie }) {
             {movie.length > 0 ? movie.map((item) => (
                 <Carousel.Item key={item.id} interval={1000}>
                     {/* <ExampleCarouselImage text="First slide" /> */}
-                    <div style={{ maxHeight: "70vh" }} className=''><img className='img-fluid' src={`${MovieThumbnail}/${item.backdrop_path}`} alt="" /></div>
+                    <div style={{ maxHeight: "92vh" }} className=''><img className='img-fluid' src={`${MovieThumbnail}/${item.backdrop_path}`} alt="" />
+                    
+                    </div>
                     <Carousel.Caption>
                         <h2 style={{ fontWeight: "900" }} className='text-primary fs-2'>{item.title ? item.title : item.name}</h2>
                         <p style={{ fontSize: "clamp(1rem,3.4783vw+0.3043rem+3rem)" }}>{item.overview}</p>

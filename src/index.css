@@ -3,4 +3,5 @@
     padding: 0px;
     box-sizing: border-box;
     font-family: 'Noto Sans Mono', monospace;
+    transition: opacity 0.5s ease-in-out;
 }
