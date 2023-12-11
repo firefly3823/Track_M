@@ -10,6 +10,16 @@
     background-position: cover;
     background-size: cover;
     min-height: 90vh;
-    
+    backdrop-filter: blur(2px) saturate(85%);
+        -webkit-backdrop-filter: blur(2px) saturate(85%);
+        background-color: rgba(17, 25, 40, 0.74);
+}
 
+.collection-container{
+    background-color: #030507;
+        background-image:
+            radial-gradient(at 47% 33%, hsl(192.22, 100%, 11%) 0, transparent 59%),
+            radial-gradient(at 82% 65%, hsl(194.74, 73%, 16%) 0, transparent 55%);
+    height: 100vh;
+    
 }

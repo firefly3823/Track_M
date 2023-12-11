@@ -14,7 +14,7 @@ function Crousal({ movie }) {
                     
                     </div>
                     <Carousel.Caption>
-                        <h2 style={{ fontWeight: "900" }} className='text-primary fs-2'>{item.title ? item.title : item.name}</h2>
+                        <h2 style={{ fontWeight: "900" }} className='text-primary strong fs-2'>{item.title ? item.title : item.name}</h2>
                         <p style={{ fontSize: "clamp(1rem,3.4783vw+0.3043rem+3rem)" }}>{item.overview}</p>
                         <Link to={`/details/${item.media_type}/${item.id}`} className='btn btn-danger' variant="none" size="sm"><i className="fa-solid fa-xl fa-circle-info" style={{ color: "#3ca8ec" }}></i>
                             {'  '}View</Link>

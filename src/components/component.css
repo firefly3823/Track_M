@@ -1,6 +1,16 @@
 .card-image{
     border-image: fill 0 linear-gradient(#0003,#000);
 }
-.test{
-    color: red;
+
+.collection-card{
+    height: 20vh;
+    width: 30rem;
+    border-radius: 20px;
+    backdrop-filter: blur(0px) saturate(85%);
+        -webkit-backdrop-filter: blur(0px) saturate(85%);
+        background-color: rgba(17, 25, 40, 0.29);
+        border-radius: 12px;
+        border: 1px solid rgba(255, 255, 255, 0.125);
+
+    
 }

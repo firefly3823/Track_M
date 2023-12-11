@@ -21,7 +21,7 @@ function Headder() {
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="me-auto">
                             <Nav.Link href="/home">Home</Nav.Link>
-                            <Nav.Link href="/latest">Latest</Nav.Link>
+                            <Nav.Link href="/collection">Collection</Nav.Link>
                             <NavDropdown title="Explore" id="basic-nav-dropdown">
                                 <NavDropdown.Item href="#action/3.1">Trending</NavDropdown.Item>
                                 <NavDropdown.Item href="#action/3.2">Recomented</NavDropdown.Item>
