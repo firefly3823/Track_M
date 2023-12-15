@@ -61,6 +61,7 @@ function Home() {
                 nextLinkClassName={'page-link'}
                 breakLinkClassName={'page-link'}
                 activeClassName={'active'}
+                
             />
         </div>
     )

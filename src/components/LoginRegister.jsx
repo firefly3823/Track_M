@@ -50,9 +50,8 @@ function LoginRegister() {
             >
                 {({ handleSubmit, handleChange, values, touched, errors }) => (
                     <Form noValidate onSubmit={handleSubmit}>
-                        <Row className="mb-3">
-                            <Form.Group as={Col} md="12" controlId="email_block">
-                                <Form.Label>E-Mail</Form.Label>
+                            <Form.Group  controlId="email_block">
+                                <Form.Label className='w-100'>E-Mail
                                 <Form.Control
                                     type="email"
                                     name="email"
@@ -61,16 +60,15 @@ function LoginRegister() {
                                     onChange={handleChange}
                                     isValid={touched.email && !errors.email}
                                     isInvalid={touched.email && errors.email}
-                                />
+                                /></Form.Label>
                                 <Form.Control.Feedback>Looks good</Form.Control.Feedback>
                                 <Form.Control.Feedback type="invalid">
                                     {errors.email}
                                 </Form.Control.Feedback>
                             </Form.Group>
-                        </Row>
-                        <Row>
-                            <Form.Group as={Col} md="12" controlId="username_block">
-                                <Form.Label>User Name</Form.Label>
+                        
+                            <Form.Group controlId="username_block">
+                                <Form.Label className='w-100'>User Name
                                 <Form.Control
                                     type="text"
                                     name="username"
@@ -79,14 +77,13 @@ function LoginRegister() {
                                     onChange={handleChange}
                                     isValid={touched.username && !errors.username}
                                     isInvalid={touched.username && errors.username}
-                                />
+                                /></Form.Label>
                                 <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                                 <Form.Control.Feedback type="invalid">{errors.username}</Form.Control.Feedback>
                             </Form.Group>
-                        </Row>
-                        <Row>
-                            <Form.Group as={Col} md="12" controlId="Password_block">
-                                <Form.Label>Password</Form.Label>
+                        
+                            <Form.Group controlId="Password_block">
+                                <Form.Label className='w-100'>Password
                                 <InputGroup hasValidation>
                                     <Form.Control
                                         type="password"
@@ -99,12 +96,12 @@ function LoginRegister() {
                                     />
                                     <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                                     <Form.Control.Feedback type="invalid">{errors.password}</Form.Control.Feedback>
-                                </InputGroup>
+                                </InputGroup></Form.Label>
                             </Form.Group>
-                        </Row>
-                        <Row>
-                            <Form.Group as={Col} md="12" controlId="confirm_password">
-                                <Form.Label>Password</Form.Label>
+                        
+                        
+                            <Form.Group  controlId="confirm_password">
+                                <Form.Label className='w-100'>Password
                                 <InputGroup hasValidation>
                                     <Form.Control
                                         type="password"
@@ -116,9 +113,8 @@ function LoginRegister() {
                                         isInvalid={touched.confPaswd && errors.confPaswd}
                                     />
                                     <Form.Control.Feedback type="invalid">{errors.confPaswd}</Form.Control.Feedback>
-                                </InputGroup>
+                                </InputGroup></Form.Label>
                             </Form.Group>
-                        </Row>
                         <div className='w-100 d-flex justify-content-end'>
                             <Button className='btn m-2'  type="submit">Sign up</Button>
                         </div>
