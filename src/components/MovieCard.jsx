@@ -3,7 +3,7 @@ import AOS from 'aos'
 import Card from 'react-bootstrap/Card';
 import { Button, OverlayTrigger, Tooltip } from 'react-bootstrap';
 import './component.css'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 
 function MovieCard({ movie }) {
@@ -16,7 +16,6 @@ function MovieCard({ movie }) {
         mirror: false,
         once: true,
     });
-
     return (
         <Card className='mb-3' style={{ maxWidth: "25rem" }}>
             <Card.Img variant="top" className='card-image' src={`${MovieThumbnail}/${movie.poster_path}`} />

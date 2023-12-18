@@ -50,7 +50,7 @@ function Home() {
                 breakLabel="..."
                 onPageChange={handlePageClick}
                 selectedPageRel={1}
-                pageCount={1000}
+                pageCount={30}
                 marginPagesDisplayed={3}
                 pageRangeDisplayed={10}
                 nextLabel=">>"

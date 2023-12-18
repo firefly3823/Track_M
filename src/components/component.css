@@ -3,7 +3,8 @@
 }
 
 .collection-card{
-    max-height: 20vh;
+    height: 10vh;
+    max-width: 35%;
     border-radius: 20px;
     backdrop-filter: blur(0px) saturate(85%);
         -webkit-backdrop-filter: blur(0px) saturate(85%);

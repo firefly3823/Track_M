@@ -24,8 +24,8 @@ function LoginUser() {
                 const result = await loginUserAPI(userData)
                 console.log(result);
                 if (result.status === 200) {
-                    sessionStorage.setItem("currentUser", JSON.stringify(result.data.existingUser))
-                    sessionStorage.setItem("sessionString", result.data.sessionString)
+                    localStorage.setItem("currentUser", JSON.stringify(result.data.existingUser))
+                    localStorage.setItem("sessionString", result.data.sessionString)
                     navigate('/home')
                 }else{
                     toast.error(result.response.data)

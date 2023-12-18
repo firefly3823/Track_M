@@ -6,7 +6,9 @@ function MyMoviesCollection() {
     return (
         <>
             <Header/>
-        <div className='collection-container'> <Trackedcard/></div>
+        <div className='collection-container'> 
+        <Trackedcard/>
+        </div>
         </>
     )
 }
